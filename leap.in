@@ -1,0 +1,21 @@
+
+addPath /home/yanzi/FORCELAB/COVID-19/ACE2/Leap
+source leaprc.gaff
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p
+
+#loadamberparams fxr.dat
+loadamberprep LM1-bcc.in
+loadamberprep LM3-bcc.in
+
+x = loadpdb prot-lig.pdb
+solvateOct x TIP3PBOX 10
+saveamberparm x prot.prm prot.rst
+savepdb x prot.pdb
+
+x = loadpdb lig.pdb
+solvateOct x TIP3PBOX 10
+saveamberparm x wat.prm wat.rst
+savepdb x wat.pdb
+quit
+
